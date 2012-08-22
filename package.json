@@ -1,0 +1,15 @@
+{
+  "name": "whereis",
+  "version": "0.0.1",
+  "author": "Vincent Voyer vincent.voyer@gmail.com",
+  "description": "Which/Whereis easy helper, find if a program exists",
+  "keywords": [
+    "which",
+    "whereis",
+    "linux",
+    "program",
+    "bin",
+    "path"
+  ],
+  "repository": "git://github.com/vvo/node-whereis.git"
+}
