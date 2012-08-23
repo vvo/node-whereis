@@ -1,9 +1,11 @@
-var exec = require('child_process').exec;
+var cp = require('child_process');
 
 module.exports = function whereis(name, cb) {
-  exec('which ' + name, function(error, stdout, stderr) {
+  cp.exec('which ' + name, function(error, stdout, stderr) {
+    stdout = stdout.split('\n')[0];
     if (error || stderr || stdout === '' || stdout.charAt(0) !== '/') {
-      exec('whereis ' + name, function(error, stdout, stderr) {
+      stdout = stdout.split('\n')[0];
+      cp.exec('whereis ' + name, function(error, stdout, stderr) {
         if (error || stderr || stdout === '' || stdout.indexOf('/') === -1) {
           return cb(new Error('Could not find ' + name + ' or system not supported'));
         }
@@ -15,4 +17,5 @@ module.exports = function whereis(name, cb) {
     }
   });
 };
+
 
