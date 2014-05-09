@@ -6,11 +6,17 @@ module.exports = function whereis(name, cb) {
     if (error || stderr || stdout === '' || stdout.charAt(0) !== '/') {
       stdout = stdout.split('\n')[0];
       cp.exec('whereis ' + name, function(error, stdout, stderr) {
-        if (error || stderr || stdout === '' || stdout.indexOf('/') === -1) {
-          return cb(new Error('Could not find ' + name + ' or system not supported'));
+        if ( error || stderr || stdout === '' || stdout.indexOf( '/' ) === -1 ) {
+          cp.exec( 'where ' + name, function ( error, stdout, stderr ) { //windows
+            if ( error || stderr || stdout === '' || stdout.indexOf( '\\' ) === -1 ) {
+              return cb( new Error( 'Could not find ' + name + ' or system not supported' ) );
+            }
+            return cb( null, stdout );
+          } );
         }
-
-        return cb(null, stdout.split(' ')[1]);
+        else {
+          return cb( null, stdout.split( ' ' )[1] );
+        }
       });
     } else {
       return cb(null, stdout);
