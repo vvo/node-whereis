@@ -1,6 +1,6 @@
 {
   "name": "whereis",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Vincent Voyer vincent.voyer@gmail.com",
   "description": "Which/Whereis easy helper, find if a program exists",
   "keywords": [
