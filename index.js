@@ -9,9 +9,15 @@ module.exports = function whereis(name, cb) {
         if (error || stderr || stdout === '' || stdout.indexOf( '/' ) === -1) {
           cp.exec('where ' + name, function (error, stdout, stderr) { //windows
             if (error || stderr || stdout === '' || stdout.indexOf('\\') === -1) {
-              return cb(new Error('Could not find ' + name + ' on your system'));
+              cp.exec('for %i in (' + name + '.exe) do @echo. %~$PATH:i', function (error, stdout, stderr) { //windows xp
+                if (error || stderr || stdout === '' || stdout.indexOf('\\') === -1) {
+                  return cb(new Error('Could not find ' + name + ' on your system'));
+                }
+                return cb(null, stdout);
+              });
+            } else {
+              return cb(null, stdout);
             }
-            return cb(null, stdout);
           });
         }
         else {
@@ -23,4 +29,3 @@ module.exports = function whereis(name, cb) {
     }
   });
 };
-

@@ -1,7 +1,7 @@
-node-whereis
+node-whereis [![Dependency Status](https://david-dm.org/vvo/node-whereis.svg)](https://david-dm.org/vvo/node-whereis) [![devDependency Status](https://david-dm.org/vvo/node-whereis/dev-status.svg)](https://david-dm.org/vvo/node-whereis#info=devDependencies)
 ============
 
-Simply get the first path to a bin on any system
+Simply get the first path to a bin on any system.
 
 ```js
 var whereis = require('whereis');
