@@ -1,5 +1,4 @@
-node-whereis [![Dependency Status](https://david-dm.org/vvo/node-whereis.svg)](https://david-dm.org/vvo/node-whereis) [![devDependency Status](https://david-dm.org/vvo/node-whereis/dev-status.svg)](https://david-dm.org/vvo/node-whereis#info=devDependencies)
-============
+# node-whereis <sup>[![Version Badge][npm-version-svg]][package-url]</sup> [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
 Simply get the first path to a bin on any system.
 
@@ -11,4 +10,11 @@ whereis('wget', function(err, path) {
 // /usr/bin/wget
 ```
 
-[![Build Status](https://secure.travis-ci.org/vvo/node-whereis.png?branch=master)](http://travis-ci.org/vvo/node-whereis)
+[package-url]: https://npmjs.org/package/node-whereis
+[npm-version-svg]: http://vb.teelaun.ch/vvo/node-whereis.svg
+[travis-svg]: https://img.shields.io/travis/vvo/node-whereis/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/vvo/node-whereis
+[license-image]: http://img.shields.io/npm/l/node-whereis.svg?style=flat-square
+[license-url]: LICENSE
+[downloads-image]: https://img.shields.io/npm/dm/node-whereis.svg?style=flat-square
+[downloads-url]: http://npm-stat.com/charts.html?package=node-whereis

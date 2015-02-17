@@ -1,7 +1,7 @@
 {
   "name": "whereis",
   "version": "0.4.0",
-  "author": "Vincent Voyer vincent.voyer@gmail.com",
+  "author": "Vincent Voyer <vincent@zeroload.net>",
   "description": "Which/Whereis easy helper, find if a program exists",
   "keywords": [
     "which",
@@ -11,9 +11,10 @@
     "bin",
     "path"
   ],
+  "license": "MIT",
   "repository": "git://github.com/vvo/node-whereis.git",
   "devDependencies": {
-    "tap": "^0.4.12"
+    "tap": "0.6.0"
   },
   "scripts": {
     "test": "node test"
