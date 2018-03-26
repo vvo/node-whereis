@@ -18,5 +18,8 @@
   },
   "scripts": {
     "test": "node test"
+  },
+  "dependencies": {
+    "which": "1.3.0"
   }
 }

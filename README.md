@@ -1,3 +1,5 @@
+**Note from maintainers: Nowadays you should use https://github.com/npm/node-which**
+
 # node-whereis <sup>[![Version Badge][npm-version-svg]][package-url]</sup> [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
 Simply get the first path to a bin on any system.
