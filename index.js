@@ -1,13 +1,13 @@
 var cp = require('child_process');
 
 module.exports = function whereis(name, cb) {
-  cp.exec('which ' + name, function(error, stdout, stderr) {
+  cp.execFile('which', [name], function(error, stdout, stderr) {
     stdout = stdout.split('\n')[0];
     if (error || stderr || stdout === '' || stdout.charAt(0) !== '/') {
       stdout = stdout.split('\n')[0];
-      cp.exec('whereis ' + name, function(error, stdout, stderr) {
+      cp.execFile('whereis', [name], function(error, stdout, stderr) {
         if (error || stderr || stdout === '' || stdout.indexOf( '/' ) === -1) {
-          cp.exec('where ' + name, function (error, stdout, stderr) { //windows
+          cp.execFile('where', [name], function (error, stdout, stderr) { //windows
             if (error || stderr || stdout === '' || stdout.indexOf('\\') === -1) {
               cp.exec('for %i in (' + name + '.exe) do @echo. %~$PATH:i', function (error, stdout, stderr) { //windows xp
                 if (error || stderr || stdout === '' || stdout.indexOf('\\') === -1) {

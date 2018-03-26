@@ -4,7 +4,7 @@ var
   whereis = require('./');
 
 test("when which found our program", function(t) {
-  cp.exec = function(name, cb) {
+  cp.execFile = function(program, args, cb) {
     cb(null, '/etc/bin');
   };
 
@@ -16,7 +16,7 @@ test("when which found our program", function(t) {
 
 test("when which did not found, whereis found it", function(t) {
   var callcount = 0;
-  cp.exec = function(name, cb) {
+  cp.execFile = function(program, args, cb) {
     if (callcount === 0) {
       callcount++;
       cb(null, 'not found bin');
@@ -33,7 +33,7 @@ test("when which did not found, whereis found it", function(t) {
 
 test("when which did not found, whereis did not found, where will find", function(t) {
   var callcount = 0;
-  cp.exec = function(name, cb) {
+  cp.execFile = function(program, args, cb) {
     if (callcount < 2) {
       callcount++;
       cb(null, 'not found bin');
@@ -49,7 +49,7 @@ test("when which did not found, whereis did not found, where will find", functio
 });
 
 test("when which found it and output has linebreak", function(t) {
-  cp.exec = function(name, cb) {
+  cp.execFile = function(program, args, cb) {
     cb(null, '/etc/bin\n');
   };
 
